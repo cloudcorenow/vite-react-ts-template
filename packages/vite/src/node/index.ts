@@ -57,7 +57,11 @@ export type {
   IndexHtmlTransformResult,
   HtmlTagDescriptor
 } from './plugins/html'
-export type { CSSOptions, CSSModulesOptions } from './plugins/css'
+export type {
+  CSSOptions,
+  CSSModulesOptions,
+  PostcssImportOptions
+} from './plugins/css'
 export type { JsonOptions } from './plugins/json'
 export type { TransformOptions as EsbuildTransformOptions } from 'esbuild'
 export type { ESBuildOptions, ESBuildTransformResult } from './plugins/esbuild'
