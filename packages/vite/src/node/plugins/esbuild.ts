@@ -231,10 +231,6 @@ export function esbuildPlugin(config: ResolvedConfig): Plugin {
     minifySyntax: false,
     minifyWhitespace: false,
     treeShaking: false,
-    // keepNames is not needed when minify is disabled.
-    // Also transforming multiple times with keepNames enabled breaks
-    // tree-shaking. (#9164)
-    keepNames: false,
   }
 
   return {
