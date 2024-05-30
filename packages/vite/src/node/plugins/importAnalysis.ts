@@ -860,7 +860,7 @@ export function createParseErrorInfo(
   }
 }
 // prettier-ignore
-const interopHelper = (m: any) => m?.__esModule ? m : { ...(typeof m === 'object' && !Array.isArray(m) || typeof m === 'function' ? m : {}), default: m }
+const interopHelper = (m: any) => m?.__esModule && Object.prototype.hasOwnProperty.call(m, 'default') ? m : { ...(typeof m === 'object' && !Array.isArray(m) || typeof m === 'function' ? m : {}), default: m }
 
 export function interopNamedImports(
   str: MagicString,
@@ -1020,7 +1020,7 @@ export function transformCjsImport(
         )
       } else if (importedName === 'default') {
         lines.push(
-          `const ${localName} = ${cjsModuleName}.__esModule ? ${cjsModuleName}.default : ${cjsModuleName}`,
+          `const ${localName} = ${cjsModuleName}.__esModule && Object.prototype.hasOwnProperty.call(${cjsModuleName}, "default") ? ${cjsModuleName}.default : ${cjsModuleName}`,
         )
       } else {
         lines.push(`const ${localName} = ${cjsModuleName}["${importedName}"]`)
