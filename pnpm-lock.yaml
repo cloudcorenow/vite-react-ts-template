@@ -490,9 +490,15 @@ importers:
 
   playground/alias/dir/module: {}
 
-  playground/assets: {}
+  playground/assets:
+    dependencies:
+      '@vitejs/test-dep-with-asset':
+        specifier: file:./dep-with-asset
+        version: file:playground/assets/dep-with-asset
 
   playground/assets-sanitize: {}
+
+  playground/assets/dep-with-asset: {}
 
   playground/backend-integration:
     devDependencies:
@@ -1558,8 +1564,13 @@ importers:
       '@vitejs/test-dep-to-optimize':
         specifier: file:./dep-to-optimize
         version: file:playground/worker/dep-to-optimize
+      '@vitejs/test-dep-with-worker':
+        specifier: file:./dep-with-worker
+        version: file:playground/worker/dep-with-worker
 
   playground/worker/dep-to-optimize: {}
+
+  playground/worker/dep-with-worker: {}
 
 packages:
 
@@ -3480,6 +3491,9 @@ packages:
   '@vitejs/test-dep-to-optimize@file:playground/worker/dep-to-optimize':
     resolution: {directory: playground/worker/dep-to-optimize, type: directory}
 
+  '@vitejs/test-dep-with-asset@file:playground/assets/dep-with-asset':
+    resolution: {directory: playground/assets/dep-with-asset, type: directory}
+
   '@vitejs/test-dep-with-builtin-module-cjs@file:playground/optimize-deps/dep-with-builtin-module-cjs':
     resolution: {directory: playground/optimize-deps/dep-with-builtin-module-cjs, type: directory}
 
@@ -3504,6 +3518,9 @@ packages:
     peerDependenciesMeta:
       foobar:
         optional: true
+
+  '@vitejs/test-dep-with-worker@file:playground/worker/dep-with-worker':
+    resolution: {directory: playground/worker/dep-with-worker, type: directory}
 
   '@vitejs/test-entries@file:playground/ssr-resolve/entries':
     resolution: {directory: playground/ssr-resolve/entries, type: directory}
@@ -8880,6 +8897,8 @@ snapshots:
 
   '@vitejs/test-dep-to-optimize@file:playground/worker/dep-to-optimize': {}
 
+  '@vitejs/test-dep-with-asset@file:playground/assets/dep-with-asset': {}
+
   '@vitejs/test-dep-with-builtin-module-cjs@file:playground/optimize-deps/dep-with-builtin-module-cjs': {}
 
   '@vitejs/test-dep-with-builtin-module-esm@file:playground/optimize-deps/dep-with-builtin-module-esm': {}
@@ -8889,6 +8908,8 @@ snapshots:
   '@vitejs/test-dep-with-optional-peer-dep-submodule@file:playground/optimize-deps/dep-with-optional-peer-dep-submodule': {}
 
   '@vitejs/test-dep-with-optional-peer-dep@file:playground/optimize-deps/dep-with-optional-peer-dep': {}
+
+  '@vitejs/test-dep-with-worker@file:playground/worker/dep-with-worker': {}
 
   '@vitejs/test-entries@file:playground/ssr-resolve/entries': {}
 
