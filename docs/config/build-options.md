@@ -185,6 +185,52 @@ export default defineConfig({
 })
 ```
 
+## build.license
+
+- **Type:** `boolean | string`
+- **Default:** `false`
+
+When set to `true`, the build will also generate a `.vite/license.md` file that includes all bundled dependencies' licenses. It can be hosted to display and acknowledge the dependencies used by the app. When the value is a string, it will be used as the license file name. An example output may look like this:
+
+```md
+# Licenses
+
+The app bundles dependencies which contains the following licenses:
+
+## dep-1 - 1.2.3 (CC0-1.0)
+
+CC0 1.0 Universal
+
+...
+
+## dep-2 - 4.5.6 (MIT)
+
+MIT License
+
+...
+```
+
+If a string is passed that ends with `.json`, a raw JSON file will be generated instead. For example:
+
+```json
+[
+  {
+    "name": "dep-1",
+    "version": "1.2.3",
+    "identifier": "CC0-1.0",
+    "text": "CC0 1.0 Universal\n\n..."
+  },
+  {
+    "name": "dep-2",
+    "version": "4.5.6",
+    "identifier": "MIT",
+    "text": "MIT License\n\n..."
+  }
+]
+```
+
+It can be used for further processing to output as a different format.
+
 ## build.manifest
 
 - **Type:** `boolean | string`
