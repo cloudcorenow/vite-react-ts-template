@@ -1,4 +1,5 @@
 version: "3.8"
+
 services:
   web:
     build:
@@ -9,4 +10,3 @@ services:
     environment:
       - NODE_ENV=production
     restart: unless-stopped
-
