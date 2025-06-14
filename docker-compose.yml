@@ -4,15 +4,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-  networks:
-      mynet:
-        ipv4_address: 10.0.20.1  # Assign a unique IP from the subnet
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
-    networks:
-  mynet:
-    external: true
-    name: mynet
+
